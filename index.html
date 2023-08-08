@@ -101,7 +101,7 @@
             
         </div>
         <div class="button-row">
-            <button class="cal-btn back">mc</button>
+            <button class="cal-btn back" onClick="keyPress('clear')">ac</button>
             <button class="cal-btn back">m+</button>
             <button class="cal-btn back">m-</button>
             <button class="cal-btn bg">mr</button>
@@ -129,7 +129,7 @@
             <button class="cal-btn back" onclick="keyPress('1')">1</button>
             <button class="cal-btn back" onclick="keyPress('2')">2</button>
             <button class="cal-btn back" onclick="keyPress('3')">3</button>
-            <button class="cal-btn bg" onclick="keyPress('x')">x</button>
+            <button class="cal-btn bg" onclick="keyPress('*')">x</button>
 
         </div>
 
@@ -137,7 +137,7 @@
             <button class="cal-btn bg" onclick="keyPress('/')">/</button>
             <button class="cal-btn bg" onclick="keyPress('0')">0</button>
             <button class="cal-btn bg" onclick="keyPress('.')">.</button>
-            <button class="cal-btn bg" onclick="keyPress('=')">=</button>
+            <button class="cal-btn bg" onclick="keyPress('=')"> =</button>
 
         </div>
 
@@ -146,10 +146,23 @@
     <script>
         function keyPress(key)
         {
-            console.log(key);
             const inputScreen = document.getElementById('input');
-            inputScreen.value = inputScreen.value + key;
-        }
+            if(key=='=')
+            {
+                inputScreen.value = eval(inputScreen.value);
+            }
+            else if(key=='clear')
+            {
+                inputScreen.value = '';
+
+            }
+            else
+            {
+                
+                inputScreen.value += key;
+            }
+    }
+
 
     </script>
     
